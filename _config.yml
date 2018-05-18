@@ -18,11 +18,9 @@ author:
 
 # Social details for the jekyll-seo-tag gem
 social:
-  name: fals.io
+  name: LinkedIn
   links:
     - https://www.linkedin.com/in/filipe-augusto-lima-de-souza-95a16833
-    - https://github.com/fals
-    - https://stackoverflow.com/users/2072198/fals
 
 permalink: pretty
 
