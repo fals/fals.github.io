@@ -10,12 +10,11 @@ My name is Filipe Lima. I have the following qualities:
 * Experienced with Data Intensive Applications
 * Implement Distributed Systems with Microservices and Messaging Patterns
 * I've been part of many projects to migrate legacy systems to monolithic Architectures to new cloud ready approaches
-* I
 
 
 What else do you need?
 
-### From where I come and where I'm now
+### From where I come from to where I'm now
 
 I’ve been working in the software industry for more than 10 years. My first job opportunity was as a C/C++ developer in an Information Security company. I’m a specialist in Microsoft .NET and Web technologies. During the last five years, I’ve been responsible for the design and implementation of enterprise solutions that should be prepared to scale and easily maintained.
 
@@ -23,5 +22,5 @@ I’m also a member of online communities and forums where I spend some time ans
 
 For the last 3 years I became a DevOps lover and addicted to Microservices, having read a lot of books about these themes to help companies to move on with their business capabilities.
 
-Today I'm working in a multinational company in Europe, helping with Scalability, Maintainability and Reliability of an awesome E2E travel/expense platform.
+Today I'm working in a multinational company in Europe, helping with Scalability, Maintainability and Reliability of an awesome E2E Travel/Expense platform.
 
