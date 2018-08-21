@@ -14,10 +14,10 @@ baseurl: "/"
 # Of course don't forget to change the username and projectname to YOUR username and project
 
 # Name of website
-title: Blog fals.io
+title: blog fals.io
 
 # Short description of your site
-description: Blog about Software Development awesomess!
+description: Blog about Software Architeture awesomess!
 
 # --- Navigation bar options --- #
 
@@ -142,7 +142,7 @@ title-separator: "-"
 # --- Don't need to touch anything below here (but you can if you want) --- #
 
 # Output options (more information on Jekyll's site)
-timezone: "America/Vancouver"
+timezone: "	Europe/Brussels"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
