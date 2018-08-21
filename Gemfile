@@ -1,10 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'jekyll', '3.3.1'
+gem "github-pages", '163', group: :jekyll_plugins
 
-group :jekyll_plugins do
-	gem 'jekyll-feed', '0.6.0'
-	gem 'jekyll-seo-tag', '2.1.0'
-	gem 'jekyll-paginate', '1.1.0'
-	gem 'jekyll-sitemap', '1.0.0'
-end
+# enable tzinfo-data for local build
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+gem 'jekyll-paginate'
