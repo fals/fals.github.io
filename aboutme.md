@@ -5,16 +5,15 @@ subtitle: What I've been throught
 bigimg: /img/about-me-image.jpg
 ---
 
-My name is Filipe Lima. I have the following qualities:
+I'm Filipe Lima, former Software Architect, here is a short description about what I've done and what I do:
 
 * Experienced with Data Intensive Applications
+* Capable of implement DevOps fallowing the principles of Lean, Toyota Kata, Continuous Delivery and Kaban
 * Implement Distributed Systems with Microservices and Messaging Patterns
-* I've been part of many projects to migrate legacy systems to monolithic Architectures to new cloud ready approaches
+* Migrate legacy systems from monolithic Architectures to new cloud ready approaches
+* Build from scratch or maintain Software Architectures for Scalability, Maintainability and Reliability
 
-
-What else do you need?
-
-### Then & Now
+### TL;DR
 
 I’ve been working in the software industry for more than 10 years. My first job opportunity was as a C/C++ developer in an Information Security company. I’m a specialist in Microsoft .NET and Web technologies. During the last five years, I’ve been responsible for the design and implementation of enterprise solutions that should be prepared to scale and easily maintained.
 
