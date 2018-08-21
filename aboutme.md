@@ -1,16 +1,27 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
+subtitle: What I've been throught
+image: /img/about-me-image.jpeg
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+My name is Filipe Lima. I have the following qualities:
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+* Experienced with Data Intensive Applications
+* Implement Distributed Systems with Microservices and Messaging Patterns
+* I've been part of many projects to migrate legacy systems to monolithic Architectures to new cloud ready approaches
+* I
+
 
 What else do you need?
 
-### my history
+### From where I come and where I'm now
 
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](http://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+I’ve been working in the software industry for more than 10 years. My first job opportunity was as a C/C++ developer in an Information Security company. I’m a specialist in Microsoft .NET and Web technologies. During the last five years, I’ve been responsible for the design and implementation of enterprise solutions that should be prepared to scale and easily maintained.
+
+I’m also a member of online communities and forums where I spend some time answering questions about Microsoft .NET, Software Architecture, Patterns and Angular JS. I also maintain and help with some OSS projects on GitHub. 
+
+For the last 3 years I became a DevOps lover and addicted to Microservices, having read a lot of books about these themes to help companies to move on with their business capabilities.
+
+Today I'm working in a multinational company in Europe, helping with Scalability, Maintainability and Reliability of an awesome E2E travel/expense platform.
+
