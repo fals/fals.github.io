@@ -14,7 +14,7 @@ My name is Filipe Lima. I have the following qualities:
 
 What else do you need?
 
-### From where I come from to where I'm now
+### Then & Now
 
 I’ve been working in the software industry for more than 10 years. My first job opportunity was as a C/C++ developer in an Information Security company. I’m a specialist in Microsoft .NET and Web technologies. During the last five years, I’ve been responsible for the design and implementation of enterprise solutions that should be prepared to scale and easily maintained.
 
