@@ -21,5 +21,5 @@ I’m also a member of online communities and forums where I spend some time ans
 
 For the last 3 years I became a DevOps lover and addicted to Microservices, having read a lot of books about these themes to help companies to move on with their business capabilities.
 
-Today I'm working in a multinational company in Europe, helping with Scalability, Maintainability and Reliability of an awesome E2E Travel/Expense platform.
+Today I'm working at a multinational company in Europe, helping with Scalability, Maintainability and Reliability of an awesome E2E Travel/Expense platform.
 
