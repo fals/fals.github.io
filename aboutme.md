@@ -2,7 +2,7 @@
 layout: page
 title: About me
 subtitle: What I've been throught
-image: /img/about-me-image.jpg
+bigimg: /img/about-me-image.jpg
 ---
 
 My name is Filipe Lima. I have the following qualities:
