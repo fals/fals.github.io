@@ -17,7 +17,7 @@ baseurl: "/"
 title: Blog fals.io
 
 # Short description of your site
-description: A virtual proof that name is awesome!
+description: Blog about Software Development awesomess!
 
 # --- Navigation bar options --- #
 
@@ -26,7 +26,6 @@ navbar-links:
   About Me: "aboutme"
   Resources:
     - GitHub Pages: "https://www.github.com/fals"
-  Author's home: "http://www.fals.io"
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
@@ -78,7 +77,7 @@ social-network-links:
 #  google-plus: +DeanAttali
 #  linkedin: daattali
 #  xing: yourname
-#  stackoverflow: "3943160/daattali"
+  stackoverflow: "2072198/fals"
 #  snapchat: deanat78
 #  instagram: deanat78
 #  youtube: user/deanat78
