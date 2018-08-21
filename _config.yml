@@ -23,6 +23,7 @@ description: Blog about Software Architeture awesomess!
 
 # List of links in the navigation bar
 navbar-links:
+  Posts: "/"
   About Me: "aboutme"
   Resources:
     - GitHub Pages: "https://www.github.com/fals"
