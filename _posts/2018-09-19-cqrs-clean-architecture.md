@@ -8,11 +8,11 @@ tags: [cqrs, ddd, architecture, clean, dotnet]
 
 ## Clean Architecture
 
-I met Clean Architecture at first reading Uncle Bob's book with the same title, and I immediately fell in love with the simplicity and applicability of his principles. Clean Architecture is all about enforce right policy rules to the way in which your software architecture is organized and more important, making it evolvable, delaying technology decisions as much as possible, as the Uncle Bob himself stated:   
+I met Clean Architecture at first hand reading Uncle Bob's book with the same title, and I immediately fell in love with the simplicity and applicability of his principles. Clean Architecture is all about enforce right policy rules to the way in which your software architecture is organized and more important, making it evolvable, delaying technology decisions as much as possible, as the Uncle Bob himself stated:   
 
 >The strategy behind that facilitation is to leave as many options open as possible, for as long as possible, Robert C. Martin
 
-Clean Architecture has lots of different interpretations and implementations around. I've tried to implement CQRS with Clean in the best way to take advantage of the main concepts of this architectural pattern, making creating a sample microservice template flexible, maintainable, evolvable, testable, detached from technology and what I think as more important respecting the policy rules, which ensure that dependencies are always lower level than their definitions.
+Clean Architecture has lots of different interpretations and implementations around. I've tried to implement CQRS with Clean in the best way to take advantage of the main concepts of this architectural pattern, making a sample microservice template flexible, maintainable, evolvable, testable, detached from technology and what I think as more important respecting the policy rules, which ensure that dependencies are always lower level than their definitions.
 
 >Source Code dependencies must point only inward, towards higher-level policy, Robert C. Martin
 
@@ -30,7 +30,7 @@ The outer ring contains a way for users to communicate with our application, the
 
 In most scenarios business domains are complex, and they grow even more in complexity over time. Implementing simple queries using the same model became harder and using the same entities to perform them not suitable. 
 
-To address this problem a good alternative is CQRS pattern. CRQS is an acronym for Command and Query Responsibility Segregation. As mentioned we have a well defined segregation between the model you write from the one you read.
+To address this problem a good alternative is CQRS pattern. CQRS is an acronym for Command and Query Responsibility Segregation. As mentioned we have a well defined segregation between the model you write from the one you read.
 
 ![](https://raw.githubusercontent.com/fals/cqrs-clean-eventual-consistency/master/docs/cqrs_layer_diagram.png)
 
@@ -59,7 +59,7 @@ Every command has a result pair in this implementations, because its not using a
 
 ### Query Stack
 
-Having our command stack interacting directly with our business entities and writing data to the write only database leves our query stack responsible for reading data from the read only database.
+Having our command stack interacting directly with our business entities and writing data to the write only database leaves our query stack as the one responsible for reading data from the read only database.
 
 The Query stack is a simplified application layer in which data is requested by a Query object, handled by a Query Handler and represented by simple DTOs called QueryModel.
 
@@ -67,7 +67,9 @@ The idea behind the a QueryModel is creating a model with the exactly fields for
 
 ![](https://raw.githubusercontent.com/fals/cqrs-clean-eventual-consistency/master/docs/get_card_list_interaction.png)
 
-The simple example above contains a representation of a query to retrieve a list of cards. GetCardListQuery contains every filter required to query the database. In other hand the CarListQueryModel is a representation of what the consumer of the query want to see, which should contain fields and aggregated information in a format similar of Materialized View, well know for data analysis in Datawarehouse.
+The simple example above contains a representation of a query to retrieve a list of cards. GetCardListQuery contains every filter required to query the database. Thus the CarListQueryModel is a representation of what the consumer of the query want to see and also the materialization of how we store this representations. 
+
+The QueryModel should contain fields and aggregated information in a format similar of Materialized View, well know for data analysis in datawarehouse.
 
 ## Show me the code
 
@@ -78,8 +80,6 @@ The source code is hosted at github: <a href="https://github.com/fals/cqrs-clean
 Here's a list of reliable information used to bring this project to life.
 
 * <a href="https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164" target="_blank">Clean Architecture, Robert C. Martin</a>
-
 * <a href="https://azure.microsoft.com/en-us/campaigns/cloud-application-architecture-guide/" target="_blank">Cloud Application Architecture Guide</a>
-
 * <a href="https://www.microsoftpressstore.com/store/microsoft-.net-architecting-applications-for-the-enterprise-9780735685352" target="_blank">Microsoft .NET - Architecting Applications for the Enterprise, 2nd Edition</a>
 
