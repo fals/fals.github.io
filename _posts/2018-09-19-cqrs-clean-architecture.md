@@ -34,7 +34,7 @@ In most scenarios business domains are complex, and they grow even more in compl
 
 To address this problem a good alternative is CQRS pattern. CRQS is an acronym for Command and Query Responsibility Segregation. As mentioned we have a well defined segregation between the model you write from the one you read.
 
-![](docs/cqrs_layer_diagram.png)
+![](https://github.com/fals/cqrs-clean-eventual-consistency/blob/master/docs/docs/cqrs_layer_diagram.png)
 
 This pattern is an excellent choice to maintain the scalability of your system, given the single responsibility of each stack, you can perform tuning to the stack in which more commonly operations are performed. 
 
@@ -53,7 +53,7 @@ Commands are responsible for performing writes in your system and should be task
 
 Each command has it own handler, in which the Use Case is implemented. Every time a command is dispatched and processed if the outcome is successful, an event is publish into a message broker with all needed information from your business entity, thereby your query stack can acknowledge changes in the write model, and persist it into the read database.
 
-![](docs/create_card_interaction.png)
+![](https://github.com/fals/cqrs-clean-eventual-consistency/blob/master/docs/docs/create_card_interaction.png)
 
 The example above you can see a CreateCardCommand, which is handled by the CreateCardCommandHandler. The handler acts as the Use Case implementation, making the interactions between the command and Card domain entity. The Card is created given the data carried by the command and persisted using the CardWriteOnlyRepository. A CardCreatedEvent is then published to the event bus and a CreateCardCommandResult is returned to the caller.
 
@@ -61,7 +61,7 @@ Every command has a result pair in this implementations, because its not using a
 
 ### Query Stack
 
-
+## References
 
 Here's a list of reliable information used to bring this project to life.
 
