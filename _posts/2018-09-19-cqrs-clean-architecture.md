@@ -6,11 +6,9 @@ bigimg: /img/path.jpg
 tags: [cqrs, ddd, architecture, clean, dotnet]
 ---
 
-CQRS, using Clean Architecture
-
 ## Clean Architecture
 
-I met Clean Architecture at first reading the book from Uncle Bob, and I immediately fell in love with the simplicity and applicability of his principles. Clean Architecture is all about enforce right policy rules to the way your software architecture is organized and more important, make is evolvable, delaying technology decisions as much as possible, as the Uncle Bob himself stated:   
+I met Clean Architecture at first reading Uncle Bob's book with the same title, and I immediately fell in love with the simplicity and applicability of his principles. Clean Architecture is all about enforce right policy rules to the way in which your software architecture is organized and more important, making it evolvable, delaying technology decisions as much as possible, as the Uncle Bob himself stated:   
 
 >The strategy behind that facilitation is to leave as many options open as possible, for as long as possible, Robert C. Martin
 
@@ -60,6 +58,16 @@ The example above you can see a CreateCardCommand, which is handled by the Creat
 Every command has a result pair in this implementations, because its not using an async model for the command stack. If you go for an async model, you could publish the result or even another event to a message queue to inform other clients.
 
 ### Query Stack
+
+Having our command stack interacting directly with our business entities and writing data to the write only database leves our query stack responsible for reading data from the read only database.
+
+The Query stack is a simplified application layer in which data is requested by a Query object, handled by a Query Handler and represented by simple DTOs called QueryModel.
+
+The idea behind the a QueryModel is creating a model with the exactly fields for clients of a specific Query, making easy to display data, aggregate information and tuning  using indexes and caching.
+
+![](https://raw.githubusercontent.com/fals/cqrs-clean-eventual-consistency/master/docs/get_card_list_interaction.png)
+
+The simple example above contains a representation of a query to retrieve a list of cards. GetCardListQuery contains every filter required to query the database. In other hand the CarListQueryModel is a representation of what the consumer of the query want to see, which should contain fields and aggregated information in a format similar of Materialized View, well know for data analysis in Datawarehouse.
 
 ## Show me the code
 
