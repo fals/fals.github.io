@@ -3,6 +3,7 @@ layout: post
 title: CQRS Translated to Clean Architecture
 subtitle: A practical implementation of CQRS with Clean pattern
 bigimg: /img/path.jpg
+share-img: /img/path.jpg
 tags: [cqrs, ddd, architecture, clean, dotnet]
 ---
 
