@@ -5,7 +5,7 @@ subtitle: The books I've read recently
 bigimg: /img/about-me-image.jpg
 ---
 
-Here's a what I think as a list of useful books, which I have in my personal library. They are great way of learning. You should keep some of them on your desk, because its useful having reliable source as close as possible :sunglasses:.
+Here's a what I think as a list of useful books, which I have in my personal library. They are great way of learning. You should keep some of them on your desk, because its useful having reliable source as close as possible :D.
 
 ## My bookshelf
 
@@ -15,7 +15,7 @@ Here's a what I think as a list of useful books, which I have in my personal lib
 
 ### 3. Building Microservices
 
-### 4. Domain Driven Designing
+### 4. Implementing Domain-Driven Design
 
 ### 5. Clean Architecture
 
