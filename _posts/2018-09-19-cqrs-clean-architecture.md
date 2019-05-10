@@ -7,8 +7,6 @@ share-img: /img/path.jpg
 tags: [cqrs, ddd, architecture, clean, dotnet]
 ---
 
-## Clean Architecture
-
 I met Clean Architecture at first hand reading Uncle Bob's book with the same title, and I immediately fell in love with the simplicity and applicability of his principles. Clean Architecture is all about enforce right policy rules to the way in which your software architecture is organized and more important, making it evolvable, delaying technology decisions as much as possible, as the Uncle Bob himself stated:   
 
 >The strategy behind that facilitation is to leave as many options open as possible, for as long as possible, Robert C. Martin
