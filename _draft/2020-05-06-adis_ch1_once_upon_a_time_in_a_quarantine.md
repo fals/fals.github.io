@@ -14,17 +14,17 @@ tags: [architecture, data, distributed system]
 
 # Whys…
 
-A few years ago I started caring too much about data. I had some previous experience with Machine Learning and large data sets when I was in the University in 2008\. In the same year I got my first job as an intern in a Technology Security company and I had to build from scratch a full functional Bayesian Text classifier.
+A few years ago I started caring too much about data. I had some previous experience with Machine Learning and large data sets when I was in the University in 2008. That same year I got my first job as an intern in a Technology Security company and I had to build a full functional Bayesian Text classifier from scratch.
 
 Back in 2008 only google had a good anti-spam system built-in, the company were I was lucky enough to work at was very innovative and we delivered a reasonable version that had an accuracy of 98.8 %.
 
-Since then I got very interested in developing and maintain applications that rely basically on large persisted data bulks but also in software architecture in general to support such requirement. In the last twelve years, I assumed the role of Architect in multiple companies I worked at and the problem in every single of them as much as I can record was related with having the correct information based on a huge amount of data in a reasonable time frame to allow humans to analyze, validate and operate.
+Since then, I got very interested in developing and maintain applications that rely on large persisted data bulks but also in software architecture in general to support such requirement. In the last twelve years, I assumed the role of Architect in multiple companies and the problem in every single of them as much as I can record was related with having the correct information based on a huge amount of data in a reasonable time frame to allow humans to analyze, validate and operate.
 
-I've also had a great opportunity to work with large enterprise projects where I could apply some concepts that are quite common when dealing with reading data, most of them successfully tackled by CQRS, others required delayed data insights with forever running Batch Loads and ETLs.
+I've also had a great opportunity to work on large enterprise projects where I could apply some concepts that are quite common when dealing with reading data, most of them successfully tackled by CQRS, others required delayed data insights with forever running Batch Loads and ETLs.
 
-I started this project with the intent to play with some new data technologies. I believe that <span style="font-weight: bold;">Distributed Applications with Real-Time Data Analytics</span> will play an important role in the years to come, I'm even pretentious enough to say that the only platforms that are going to succeed with the area of business their software is specialized with, are the ones offering a piece of real-time data feature to their customers.
+I started this project with the intent to play with some new data technologies. I believe that <span style="font-weight: bold;">Distributed Applications with Real-Time Data Analytics</span> will play an important role in the years to come, I'm even pretentious enough to say that the only platforms that are going to succeed with the area of business their software is specialized with, are the ones offering some piece of a real-time data feature to their customers.
 
-Traditionally real-time analytics is used in the background to provide insides to business people, but they offer more than numbers to calculate risk or strategies for some time to come, software is an instrument that empowers users and having such tools available will make a regular user powerful enough to ditch outdated report strategies with copies of data to use almost real-time data to perform actions in the system.
+Traditionally real-time analytics is used in the background to provide insights to business people, but they offer more than numbers to calculate risk or strategies for some time to come, software is an instrument that empowers users and having such tools available will make a regular user powerful enough to ditch outdated report strategies with copies of data to use almost real-time data to perform actions in the system.
 
 You will find here a combination of different topics that are trending in data applications and commonly distributed architectures. This project is an experimental piece that tries to unify Distributed System Principles with Data Analytics to create an application that is robust enough to do both in a way that Data is central for the user.
 
@@ -41,7 +41,7 @@ Not less important the following Distributed System Principles were applied:
 * Extensibility
 
 
-As you were reading this page any of the subjects may change during the course of the series until completion. Another unusual thing is that I'm practicing writing this in an iterative way, so as I iterate, some subjects might change, mainly regarding the technology used or the addition of a new practice or pattern I find interesting to show in practice.
+As you were reading this page any of the subjects may change during the course of the series until completion. Another unusual thing is that I'm practicing, is writing this in an iterative way, so as I iterate, some subjects might change, mainly regarding the technology used or the addition of a new practice or pattern I find interesting to show in practice.
 
 # Time made this project possible
 
