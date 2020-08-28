@@ -8,7 +8,7 @@ bigimg: /img/about-me-image.jpg
 I'm Filipe Lima, former Software Architect, here is a short description about what I've done and what I do:
 
 * Experienced with Data Intensive Applications
-* Capable of implement DevOps fallowing the principles of Lean, Toyota Kata, Continuous Delivery and Kaban
+* Capable of implement DevOps following the principles of Lean, Toyota Kata, Continuous Delivery and Kaban
 * Implement Distributed Systems with Microservices and Messaging Patterns
 * Migrate legacy systems from monolithic Architectures to new cloud ready approaches
 * Build from scratch or maintain Software Architectures for Scalability, Maintainability and Reliability
