@@ -7,7 +7,7 @@ share-img: /img/fence.jpg
 tags: [architecture, distributedsystem, dotnet, redis, mongodb]
 ---
 
-A common issue in distributed system is having multiple consumers hosted in different nodes competing for the same resources. In the example bellow a producer creates files in a file share and multiple consumers compete to for those files to parse and persist the data.
+A common issue in distributed system is having multiple consumers hosted in different nodes competing for the same resources. In the example bellow a producer creates files in a file share and multiple consumers compete for those files to parse and persist the data.
 
 ![](/img/distributed-lock-redis.svg.png)
 
