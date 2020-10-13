@@ -13,7 +13,7 @@ A common issue in distributed system is having multiple consumers hosted in diff
 
 ## 🔒 Best-effort
 
-A simple approach to implement a reliable lock is by best-effort, **set-if-not-exists**. By best-effort it means that the lock has no guarantee that it will always work, mainly because of network issues or in cases the node that requested the lock crashes without finishing it work and releasing it.
+A simple approach to implement a reliable lock is by best-effort, **set-if-not-exists**. By best-effort it means that the lock has no guarantee that it will always work, mainly because of network issues or in cases the node that requested the lock crashes without finishing its work and releasing it.
 
 >The locks are approximate and may fail occasionally
 
