@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Designing Apis using REST Endpoints
-subtitle: Create simple and maintainable services designed around Endpoints as Components
+subtitle: Creating simple and maintainable services designed around Endpoints as Components
 bigimg: /img/jenga.jpg
 share-img: /img/fence.jpg
 tags: [architecture, REST, dotnet, api, endpoints]
