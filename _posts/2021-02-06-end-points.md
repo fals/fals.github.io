@@ -39,8 +39,7 @@ Having your api with multiple endpoints classes doesn't affect discoverability, 
 
 Designing your code around Endpoints is the way to go for maintainability and evolvability of services exposing Apis. Give it a try, you won't regret.
 
-The source code is hosted on GitHub: [Guaraci Clean Architecture CQRS with Derived Data
-](https://github.com/fals/cqrs-clean-eventual-consistency)](https://link)
+The source code is hosted on GitHub: [Guaraci Clean Architecture CQRS with Derived Data]([https://link](https://github.com/fals/cqrs-clean-eventual-consistency))
 
 ## 📖 Reference 
 
