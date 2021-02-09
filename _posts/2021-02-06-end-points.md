@@ -19,7 +19,7 @@ The **Controller** is used for multiple purpose REST methods, it gets too large 
 
 ## 📦 Endpoints and Component Base Design
 
-The idea of organizing your API using endpoints got forgotten and lost with the deprecation of [SOA](https://en.wikipedia.org/wiki/Service-oriented_architecture), but in the end it is basically the utilization of the design patters below:
+The idea of organizing your API using endpoints got forgotten and lost with the deprecation of [SOA](https://en.wikipedia.org/wiki/Service-oriented_architecture), but in the end it is basically the utilization of the principles below:
 
 * SoC - Separation of Concerns, an endpoint is the extension of the Use Case, it exposes a specific capability, requires certain contracts, the contracts should follow the endpoint, all together represents small module in that service.
 
