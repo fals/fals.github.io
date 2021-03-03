@@ -21,7 +21,7 @@ The **Controller** is used for multiple purpose REST methods, it gets too large 
 
 The idea of organizing your API using endpoints got forgotten and lost with the deprecation of [SOA](https://en.wikipedia.org/wiki/Service-oriented_architecture), but in the end it is basically the utilization of the principles below:
 
-* SoC - Separation of Concerns, an endpoint is the extension of the Use Case, it exposes a specific capability, requires certain contracts, the contracts should follow the endpoint, all together represents small module in that service.
+* SoC - Separation of Concerns, an endpoint is the extension of the Use Case, it exposes a specific capability, requires certain contracts, the contracts should follow the endpoint, all together represents a small module in that service.
 
 * SRP - Single-responsibility principle, the endpoint and its contracts they change for a single reason, because the Use Case which it exposes the capability changed, the contracts change because the end-point changed and vice versa.
 
