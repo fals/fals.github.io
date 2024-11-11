@@ -18,6 +18,7 @@ Distributed systems and cloud native are the norm nowadays, and EDA aligns with 
 Event-driven architectures often being designed atop *message-driven architectures*, in which most of the work is done async, service communication will be mainly through events sent to message systems queues or topics. There are two common implementations for this pattern *Broker* and *Mediator*.
 
 ![Fig.01](/img/2024-11-11-event-driven-architectures-101/101_01_eda.png)
+
 ## Brokers
 
 The broken has the elements bellow:
@@ -38,6 +39,7 @@ In this pattern you have a centralized mediator that can be transactional and wi
 # Events
 
 Events are a lightweight message that carries information about changes in areas of the system and they come in two flavors, *Deltas* and *Facts*.
+
 ## Delta Events
 
 A Delta event could represent the change in risk for a customer. It might include information about what specifically changed and by how much.
@@ -142,6 +144,7 @@ We have three general delivery guarantees.
 - *Exactly-once*: The message sent will never be duplicated so you must guarantee its processing. This is extremely difficult to handle and the most complex option, replaying data is almost impossible in this scenario and should be carefully considered weather it is necessary to have it, given #at-least-once can do better with less cost.
 
 Every message system has its own delivery guarantee in place, as for example GCP Pub/Sub supports even #exact-once but by default it is #at-least-once. You can see more about this case in their official documentation, [Cloud Pub/Sub Exactly-once Delivery feature is now Generally Available (GA) - Google Cloud Blog](https://cloud.google.com/blog/products/data-analytics/cloud-pub-sub-exactly-once-delivery-feature-is-now-ga).
+
 # Message Systems
 
 It is a kind of database but optimized for handling messages streams, like queues and topics, and works in a centralized model allowing clientes to connect, produce and consume messages. Message retention works in a different way, usually consumed messages are deleted as son Ack is received. 
@@ -150,6 +153,7 @@ It is a kind of database but optimized for handling messages streams, like queue
 - [What is Pub/Sub? - Cloud Pub/Sub Documentation-Google Cloud](https://cloud.google.com/pubsub/docs/overview)
 - [Message Queuing Service - Amazon Simple Queue Service - AWS](https://aws.amazon.com/sqs/)
 - [RabbitMQ: easy to use, flexible messaging and streaming — RabbitMQ](https://www.rabbitmq.com/)
+
 ## Streaming
 
 Event streaming platforms like Kafka operates on unbounded stream of data, with higher ordering guarantees and longer retention of messages.
@@ -165,6 +169,7 @@ This is how it should look in terms of software architecture: The outbox pattern
 There's a very good video and documentation from Confluent on this topic.
 - [What is the Dual Write Problem? - Designing Event-Driven Microservices - YouTube](https://www.youtube.com/watch?v=FpLXCBr7ucA)
 - [Understanding the Dual-Write Problem and Its Solutions](https://www.confluent.io/blog/dual-write-problem/)
+
 # Derived data and Eventual Consistency
 
 In EDA you start having copies of the same data scattered over multiple services for different reasons and purposes, as for example, enrich or aggregate, provide view only performant services for heavy queries and so on.
@@ -172,6 +177,7 @@ In EDA you start having copies of the same data scattered over multiple services
 - Derived data is data from the system of records that got transformed.
 
 Data is replicated as events takes times to propagate, you might encounter multiple inconsistences in derived data, but the inconsistences are temporary and resolves it self with time.
+
 # Pitfalls
 
 - Not threating events as same as any API schema, or contract can lead to unprecedent distributed disasters.
