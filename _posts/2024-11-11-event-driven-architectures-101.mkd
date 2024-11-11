@@ -9,7 +9,7 @@ tags: [architecture, EDA, events, cloud native]
 
 # Introduction
 
-This is a high level post with some 101 takes on Event Driven Architecture. This post contains compressed and summarized information to guide you through some common patterns and practices, later on you can dig deeper based on the topics.
+This is a high level post with 101 takes on Event Driven Architecture. This post contains compressed and summarized information to guide you through some common patterns and practices, later on you can dig deeper based on the topics.
 
 Distributed systems and cloud native are the norm nowadays, and EDA aligns with both.
 
