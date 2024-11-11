@@ -2,8 +2,8 @@
 layout: post
 title: Event Driven Architectures 101
 subtitle: A compressed summary of patterns and practices for EDA
-bigimg: /img/2024-11-11-event-driven-architectures-101/image.jpg
-share-img: /img/2024-11-11-event-driven-architectures-101/image.jpg
+bigimg: /img/2024-11-11-event-driven-architectures-101/image.png
+share-img: /img/2024-11-11-event-driven-architectures-101/image.png
 tags: [architecture, EDA, events, cloud native]
 ---
 
@@ -146,8 +146,8 @@ Every message system has its own delivery guarantee in place, as for example GCP
 
 It is a kind of database but optimized for handling messages streams, like queues and topics, and works in a centralized model allowing clientes to connect, produce and consume messages. Message retention works in a different way, usually consumed messages are deleted as son Ack is received. 
 
-- [Introduction to Azure Service Bus, an enterprise message broker - Azure Service Bus | Microsoft Learn](https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview)
-- [What is Pub/Sub?  |  Cloud Pub/Sub Documentation  |  Google Cloud](https://cloud.google.com/pubsub/docs/overview)
+- [Introduction to Azure Service Bus, an enterprise message broker - Azure Service Bus - Microsoft Learn](https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview)
+- [What is Pub/Sub? - Cloud Pub/Sub Documentation-Google Cloud](https://cloud.google.com/pubsub/docs/overview)
 - [Message Queuing Service - Amazon Simple Queue Service - AWS](https://aws.amazon.com/sqs/)
 - [RabbitMQ: easy to use, flexible messaging and streaming — RabbitMQ](https://www.rabbitmq.com/)
 ## Streaming
@@ -156,14 +156,14 @@ Event streaming platforms like Kafka operates on unbounded stream of data, with 
 
 Stream systems are know by the high horizontal scalability and use in near-real-time data processing.
 - [Apache Kafka](https://kafka.apache.org/)
-- [Apache Pulsar | Apache Pulsar](https://pulsar.apache.org/)
+- [Apache Pulsar - Apache Pulsar](https://pulsar.apache.org/)
 
 ## Dual Write Problem
 
 This is how it should look in terms of software architecture: The outbox pattern visualized. In summary, the dual write problem is **an issue that sometimes crops up when creating complex systems with event-driven design**. However, utilizing chaining and event duplication practices helps you resolve this issue.
 
 There's a very good video and documentation from Confluent on this topic.
-- [What is the Dual Write Problem? | Designing Event-Driven Microservices - YouTube](https://www.youtube.com/watch?v=FpLXCBr7ucA)
+- [What is the Dual Write Problem? - Designing Event-Driven Microservices - YouTube](https://www.youtube.com/watch?v=FpLXCBr7ucA)
 - [Understanding the Dual-Write Problem and Its Solutions](https://www.confluent.io/blog/dual-write-problem/)
 # Derived data and Eventual Consistency
 
@@ -177,7 +177,7 @@ Data is replicated as events takes times to propagate, you might encounter multi
 - Not threating events as same as any API schema, or contract can lead to unprecedent distributed disasters.
 - It is very difficult to introduce EDA in systems that have strict need of order and ACID transactions, basically, a system with high tolerance to eventuality.
 - Should never design events with assumption of correlation between events.
-- Going to full Choreography means proper use of async [Saga pattern - Azure Design Patterns | Microsoft Learn](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/saga/saga) to ensure consistent state.
+- Going to full Choreography means proper use of async [Saga pattern - Azure Design Patterns - Microsoft Learn](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/saga/saga) to ensure consistent state.
 - It is important to understand delivery guarantees, *At-least once* is the most used one, consumers should be prepared to receive duplicates.
 - Vendor lock, not wrapping or creating abstraction can introduce friction while introducing or migrating to different message systems.
 - Relying heavily on derived data for business rules, the system of records is the source of truth, sometimes direct API call can save your lots of complexity.
