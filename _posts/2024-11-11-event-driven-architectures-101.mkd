@@ -104,9 +104,8 @@ Events should have a proper definition of enveloping, timestamp, type, versionin
 }
 ```
 
-````ad-warning
-For any breaking changes, consider keeping the versions until everyone migrated, and create a new version to allow consumers to benefit from new behavior.
-````
+> For any breaking changes, consider keeping the versions until everyone migrated, and create a new version to allow consumers to benefit from new behavior.
+
 ## Monorepos
 
 In monorepos, given all code is in the same place, you can create the event specification and share across all services. This is a good approach because:
@@ -121,15 +120,14 @@ In a case services owned by different teams are not in the same repository or in
 
 I've seen projects and systems having a repository with all the contracts and publish packages versions with changes. It creates a huge mess with systems that contains broken versions of contracts and events that failed too be parsed by consumers because of different packages versions distributed across hundreds of microservices with different versions of the package.
 
-````ad-tip
-Just create a strong typed object in the place the event is consumed with the fields that are used from that event. The duplication will pay-off.
-````
+
+> Just create a strong typed object in the place the event is consumed with the fields that are used from that event. The duplication will pay-off.
+
 
 There's a project called [CloudEvents |](https://cloudevents.io/) that meant to solve this problem, consider using some patterns they created.
 
-````ad-warning
-Avoid packing event contracts in packages and referencing on your services, it might lead to unprecendet side effects if a package version contains a bug in combination with various microservices importing that package deployed independently.
-````
+
+> Avoid packing event contracts in packages and referencing on your services, it might lead to unprecendet side effects if a package version contains a bug in combination with various microservices importing that package deployed independently.
 
 # Delivery Guarantees
 
