@@ -11,7 +11,8 @@ tags: [architecture, EDA, events, cloud native]
 
 This is a high level post with some 101 takes on Event Driven Architecture. This post contains compressed and summarized information to guide you through some common patterns and practices, later on you can dig deeper based on the topics.
 
-Distributed systems and cloud native are the norm nowadays, and EDA aligns with the both, it is a must known.
+Distributed systems and cloud native are the norm nowadays, and EDA aligns with both.
+
 # EDA - Event Driven Architectures
 
 Event-driven architectures often being designed atop *message-driven architectures*, in which most of the work is done async, service communication will be mainly through events sent to message systems queues or topics. There are two common implementations for this pattern *Broker* and *Mediator*.
