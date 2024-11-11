@@ -124,7 +124,7 @@ I've seen projects and systems having a repository with all the contracts and pu
 > Just create a strong typed object in the place the event is consumed with the fields that are used from that event. The duplication will pay-off.
 
 
-There's a project called [CloudEvents |](https://cloudevents.io/) that meant to solve this problem, consider using some patterns they created.
+There's a project called [CloudEvents](https://cloudevents.io/) that meant to solve this problem, consider using some patterns they created.
 
 
 > Avoid packing event contracts in packages and referencing on your services, it might lead to unprecendet side effects if a package version contains a bug in combination with various microservices importing that package deployed independently.
