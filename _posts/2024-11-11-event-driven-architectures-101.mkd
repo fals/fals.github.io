@@ -1,0 +1,189 @@
+---
+layout: post
+title: Event Driven Architectures 101
+subtitle: A compressed summary of patterns and practices for EDA
+bigimg: /img/jenga.jpg
+share-img: /img/2024-11-11-event-driven-architectures-101/image.jpg
+tags: [architecture, EDA, events, cloud native]
+---
+
+# Introduction
+
+This is a high level post with some 101 takes on Event Driven Architecture. This post contains compressed and summarized information to guide you through some common patterns and practices, later on you can dig deeper based on the topics.
+
+Distributed systems and cloud native are the norm nowadays, and EDA aligns with the both, it is a must known.
+# EDA - Event Driven Architectures
+
+Event-driven architectures often being designed atop *message-driven architectures*, in which most of the work is done async, service communication will be mainly through events sent to message systems queues or topics. There are two common implementations for this pattern *Broker* and *Mediator*.
+
+![Fig.01](/img/2024-11-11-event-driven-architectures-101/101_01_eda.png)
+## Brokers
+
+The broken has the elements bellow:
+- queues or topics
+- initiating events or commands
+- internal events to the orchestration
+- event processors
+
+![Fig.02](/img/2024-11-11-event-driven-architectures-101/101_02_broker.png)
+
+It creates a lot of complexity because has movable parts and makes difficult to scale, mainly for error handling.
+## Mediators
+
+In this pattern you have a centralized mediator that can be transactional and will handle the orchestration in a single place, and can ensure errors don't occur during the process, and for example makes easier to generate a single notification message for external systems.
+
+![Fig.03](/img/2024-11-11-event-driven-architectures-101/101_03_mediator.png)
+
+# Events
+
+Events are a lightweight message that carries information about changes in areas of the system and they come in two flavors, *Deltas* and *Facts*.
+## Delta Events
+
+A Delta event could represent the change in risk for a customer. It might include information about what specifically changed and by how much.
+
+```json
+{
+  "specversion" : "1.0",
+  "type" : "RiskDeltaEvent",
+  "source" : "/your-risk-system",
+  "id" : "unique-delta-event-id",
+  "time" : "2024-02-23T12:00:00Z",
+  "data" : {
+    "customerId" : "12345",
+    "changeType" : "RiskIncrease",
+    "changeAmount" : 0.2,
+    "reason" : "Unusual transaction pattern detected"
+  }
+}
+
+```
+## Fact Events
+
+A Fact event could represent the current state of the customer risk, providing a snapshot of the risk at a particular point in time.
+
+```json
+{
+  "specversion" : "1.0",
+  "type" : "RiskFactEvent",
+  "source" : "/your-risk-system",
+  "id" : "unique-fact-event-id",
+  "time" : "2024-02-23T12:00:00Z",
+  "data" : {
+    "customerId" : "12345",
+    "currentRiskLevel" : 0.7,
+    "details" : "High risk due to recent suspicious activity"
+  }
+}
+
+```
+
+## Stablish a pattern that everyone would follow
+
+Events should be treat as contracts, you cannot afford having breaking changes, given that we have different systems that might not be tight coupled to strong typed definitions of the events. 
+
+The three rules are a must:
+1. Never delete anything
+2. Everything new is optional
+3. Do not change behavior without versioning
+
+Events should have a proper definition of enveloping, timestamp, type, versioning, origin and content-type.
+
+```json
+{
+    "specversion" : "1.0",
+    "type" : "com.github.pull_request.opened",
+    "source" : "https://github.com/cloudevents/spec/pull",
+    "subject" : "123",
+    "id" : "A234-1234-1234",
+    "time" : "2018-04-05T17:31:00Z",
+    "comexampleextension1" : "value",
+    "comexampleothervalue" : 5,
+    "datacontenttype" : "text/xml",
+    "data" : "<much wow=\"xml\"/>"
+}
+```
+
+````ad-warning
+For any breaking changes, consider keeping the versions until everyone migrated, and create a new version to allow consumers to benefit from new behavior.
+````
+## Monorepos
+
+In monorepos, given all code is in the same place, you can create the event specification and share across all services. This is a good approach because:
+
+- Changes in the event will be propagated everywhere you use without needing changes in consumers
+- Reduces the chances of breaking the event
+- Easier to track what is used, deprecation and versioning changes
+
+## Decentralized version control
+
+In a case services owned by different teams are not in the same repository or in multiple the potencial to break things are higher, so following a pattern and enforce the three rules stated before are a must.
+
+I've seen projects and systems having a repository with all the contracts and publish packages versions with changes. It creates a huge mess with systems that contains broken versions of contracts and events that failed too be parsed by consumers because of different packages versions distributed across hundreds of microservices with different versions of the package.
+
+````ad-tip
+Just create a strong typed object in the place the event is consumed with the fields that are used from that event. The duplication will pay-off.
+````
+
+There's a project called [CloudEvents |](https://cloudevents.io/) that meant to solve this problem, consider using some patterns they created.
+
+````ad-warning
+Avoid packing event contracts in packages and referencing on your services, it might lead to unprecendet side effects if a package version contains a bug in combination with various microservices importing that package deployed independently.
+````
+
+# Delivery Guarantees
+
+> There are only two hard problems in distributed systems: 2. Exactly-once delivery 1. Guarantee order of messages 2. Exactly-once delivery.
+> Mathias Verraes
+
+Delivery guarantees are important and should never be out of scope when designing EDA system as they deeply impact how you would handle messages and the complexity of receiving the same event once, multiple times or even never.
+
+We have three general delivery guarantees.
+- *Best-effort*: Data loss is possible, message might not be send and it is suitable when you don't care of processing all the events.
+- *At-least-once*: Message can be delivery more than once, it increases the complexity of your system if compared with #best-effor but it is the most common case and less expensive to implement than #exact-once. 
+- *Exactly-once*: The message sent will never be duplicated so you must guarantee its processing. This is extremely difficult to handle and the most complex option, replaying data is almost impossible in this scenario and should be carefully considered weather it is necessary to have it, given #at-least-once can do better with less cost.
+
+Every message system has its own delivery guarantee in place, as for example GCP Pub/Sub supports even #exact-once but by default it is #at-least-once. You can see more about this case in their official documentation, [Cloud Pub/Sub Exactly-once Delivery feature is now Generally Available (GA) | Google Cloud Blog](https://cloud.google.com/blog/products/data-analytics/cloud-pub-sub-exactly-once-delivery-feature-is-now-ga).
+# Message Systems
+
+It is a kind of database but optimized for handling messages streams, like queues and topics, and works in a centralized model allowing clientes to connect, produce and consume messages. Message retention works in a different way, usually consumed messages are deleted as son Ack is received. 
+
+- [Introduction to Azure Service Bus, an enterprise message broker - Azure Service Bus | Microsoft Learn](https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview)
+- [What is Pub/Sub?  |  Cloud Pub/Sub Documentation  |  Google Cloud](https://cloud.google.com/pubsub/docs/overview)
+- [Message Queuing Service - Amazon Simple Queue Service - AWS](https://aws.amazon.com/sqs/)
+- [RabbitMQ: easy to use, flexible messaging and streaming — RabbitMQ](https://www.rabbitmq.com/)
+## Streaming
+
+Event streaming platforms like Kafka operates on unbounded stream of data, with higher ordering guarantees and longer retention of messages.
+
+Stream systems are know by the high horizontal scalability and use in near-real-time data processing.
+- [Apache Kafka](https://kafka.apache.org/)
+- [Apache Pulsar | Apache Pulsar](https://pulsar.apache.org/)
+
+## Dual Write Problem
+
+This is how it should look in terms of software architecture: The outbox pattern visualized. In summary, the dual write problem is **an issue that sometimes crops up when creating complex systems with event-driven design**. However, utilizing chaining and event duplication practices helps you resolve this issue.
+
+There's a very good video and documentation from Confluent on this topic.
+- [What is the Dual Write Problem? | Designing Event-Driven Microservices - YouTube](https://www.youtube.com/watch?v=FpLXCBr7ucA)
+- [Understanding the Dual-Write Problem and Its Solutions](https://www.confluent.io/blog/dual-write-problem/)
+# Derived data and Eventual Consistency
+
+In EDA you start having copies of the same data scattered over multiple services for different reasons and purposes, as for example, enrich or aggregate, provide view only performant services for heavy queries and so on.
+- System of records is the source of truth of data.
+- Derived data is data from the system of records that got transformed.
+
+Data is replicated as events takes times to propagate, you might encounter multiple inconsistences in derived data, but the inconsistences are temporary and resolves it self with time.
+# Pitfalls
+
+- Not threating events as same as any API schema, or contract can lead to unprecedent distributed disasters.
+- It is very difficult to introduce EDA in systems that have strict need of order and ACID transactions, basically, a system with high tolerance to eventuality.
+- Should never design events with assumption of correlation between events.
+- Going to full Choreography means proper use of async [Saga pattern - Azure Design Patterns | Microsoft Learn](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/saga/saga) to ensure consistent state.
+- It is important to understand delivery guarantees, *At-least once* is the most used one, consumers should be prepared to receive duplicates.
+- Vendor lock, not wrapping or creating abstraction can introduce friction while introducing or migrating to different message systems.
+- Relying heavily on derived data for business rules, the system of records is the source of truth, sometimes direct API call can save your lots of complexity.
+- Selecting the wrong Message Broker, trying to implement real time without streaming and using streaming without needing it can lead to unnecessary complexity, use the right tool.
+
+# Closing
+
+This is my 101 guide about modern Event Driven Architectures, if you are interested in seeing some code and explore more the complexity of EDA, I recommend taking a look at [dapr/dapr: Dapr is a portable, event-driven, runtime for building distributed applications across cloud and edge.](https://github.com/dapr/dapr), the framework is an opinionated way on building distributed systems, but the main take is that they implement a lot of good practices, and reading some good and cleaver code as in their repository can help you gasp most of the good and bad parts. 

@@ -7,19 +7,15 @@ bigimg: /img/about-me-image.jpg
 
 I'm Filipe Lima, former Software Architect, here is a short description about what I've done and what I do:
 
-* Experienced with Data Intensive Applications
-* Capable of implement DevOps following the principles of Lean, Toyota Kata, Continuous Delivery and Kaban
-* Implement Distributed Systems with Microservices and Messaging Patterns
-* Migrate legacy systems from monolithic Architectures to new cloud ready approaches
-* Build from scratch or maintain Software Architectures for Scalability, Maintainability and Reliability
+- Product driven mindset.
+- Making decisions based on trade-offs, industry standards, hypotheses and data driven approaches.
+- Experience with Data Intensive Applications.
+- Implementing Distributed Systems with Microservices and Messaging Patterns.
+- Migrating legacy systems from monolithic Architectures to new Cloud Native approach.
+- Understands Cloud Economics.
+- Experience with all major Cloud Providers, GCP, AWS and Azure.
+- Reversing engineering, debug and fixing hard problems.
+- Experience in maintaining large Test Suites on scale.
+- Knows Kubernetes, ran and deployed large and complex applications on it.
 
-### TL;DR
-
-I’ve been working in the software industry for more than 10 years. My first job opportunity was as a C/C++ developer in an Information Security company. I’m a specialist in Microsoft .NET and Web technologies. During the last five years, I’ve been responsible for the design and implementation of enterprise solutions that should be prepared to scale and easily maintained.
-
-I’m also a member of online communities and forums where I spend some time answering questions about Microsoft .NET, Software Architecture, Patterns and Angular JS. I also maintain and help with some OSS projects on GitHub. 
-
-For the last 3 years I became a DevOps lover and addicted to Microservices, having read a lot of books about these themes to help companies to move on with their business capabilities.
-
-Today I'm working at a multinational company in Europe, helping with Scalability, Maintainability and Reliability of an awesome E2E Travel/Expense platform.
-
+After 10+ years in Enterprise and **Microsft .NET** I shifted to **golang** and I now develop automation tools for the main Managed Kubernetes Solutions at CAST AI. Big time reversing engineering and creating software that is used enginners like me and SREs all around the world.
