@@ -2,8 +2,8 @@
 layout: post
 title: Event Driven Architectures 101
 subtitle: A compressed summary of patterns and practices for EDA
-bigimg: /img/2024-11-11-event-driven-architectures-101/image.png
-share-img: /img/2024-11-11-event-driven-architectures-101/image.png
+bigimg: /img/jenga.jpg
+share-img: /img/jenga.jpg
 tags: [architecture, EDA, events, cloud native]
 ---
 
