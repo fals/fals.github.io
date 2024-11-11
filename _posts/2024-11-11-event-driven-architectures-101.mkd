@@ -158,7 +158,7 @@ It is a kind of database but optimized for handling messages streams, like queue
 
 Event streaming platforms like Kafka operates on unbounded stream of data, with higher ordering guarantees and longer retention of messages.
 
-Stream systems are know by the high horizontal scalability and use in near-real-time data processing.
+Stream systems are known by the high horizontal scalability and use in near-real-time data processing.
 - [Apache Kafka](https://kafka.apache.org/)
 - [Apache Pulsar - Apache Pulsar](https://pulsar.apache.org/)
 
