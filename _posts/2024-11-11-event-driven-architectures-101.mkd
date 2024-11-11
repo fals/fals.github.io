@@ -180,7 +180,7 @@ Data is replicated as events takes times to propagate, you might encounter multi
 
 # Pitfalls
 
-- Not threating events as same as any API schema, or contract can lead to unprecedent distributed disasters.
+- Not treating events as same as any API schema, or contract can lead to unprecedent distributed disasters.
 - It is very difficult to introduce EDA in systems that have strict need of order and ACID transactions, basically, a system with high tolerance to eventuality.
 - Should never design events with assumption of correlation between events.
 - Going to full Choreography means proper use of async [Saga pattern - Azure Design Patterns - Microsoft Learn](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/saga/saga) to ensure consistent state.
