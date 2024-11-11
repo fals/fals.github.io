@@ -141,7 +141,7 @@ We have three general delivery guarantees.
 - *At-least-once*: Message can be delivery more than once, it increases the complexity of your system if compared with #best-effor but it is the most common case and less expensive to implement than #exact-once. 
 - *Exactly-once*: The message sent will never be duplicated so you must guarantee its processing. This is extremely difficult to handle and the most complex option, replaying data is almost impossible in this scenario and should be carefully considered weather it is necessary to have it, given #at-least-once can do better with less cost.
 
-Every message system has its own delivery guarantee in place, as for example GCP Pub/Sub supports even #exact-once but by default it is #at-least-once. You can see more about this case in their official documentation, [Cloud Pub/Sub Exactly-once Delivery feature is now Generally Available (GA) | Google Cloud Blog](https://cloud.google.com/blog/products/data-analytics/cloud-pub-sub-exactly-once-delivery-feature-is-now-ga).
+Every message system has its own delivery guarantee in place, as for example GCP Pub/Sub supports even #exact-once but by default it is #at-least-once. You can see more about this case in their official documentation, [Cloud Pub/Sub Exactly-once Delivery feature is now Generally Available (GA) - Google Cloud Blog](https://cloud.google.com/blog/products/data-analytics/cloud-pub-sub-exactly-once-delivery-feature-is-now-ga).
 # Message Systems
 
 It is a kind of database but optimized for handling messages streams, like queues and topics, and works in a centralized model allowing clientes to connect, produce and consume messages. Message retention works in a different way, usually consumed messages are deleted as son Ack is received. 
