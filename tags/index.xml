@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Tags on blog.fals.io</title>
+        <link>http://localhost:1313/tags/</link>
+        <description>Recent content in Tags on blog.fals.io</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>Filipe Lima</copyright>
+        <lastBuildDate>Mon, 11 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Architecture</title>
+        <link>http://localhost:1313/tags/architecture/</link>
+        <pubDate>Mon, 11 Nov 2024 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/tags/architecture/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Cloud Native</title>
+        <link>http://localhost:1313/tags/cloud-native/</link>
+        <pubDate>Mon, 11 Nov 2024 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/tags/cloud-native/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>EDA</title>
+        <link>http://localhost:1313/tags/eda/</link>
+        <pubDate>Mon, 11 Nov 2024 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/tags/eda/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Events</title>
+        <link>http://localhost:1313/tags/events/</link>
+        <pubDate>Mon, 11 Nov 2024 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/tags/events/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>API</title>
+        <link>http://localhost:1313/tags/api/</link>
+        <pubDate>Sat, 06 Feb 2021 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/tags/api/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Dotnet</title>
+        <link>http://localhost:1313/tags/dotnet/</link>
+        <pubDate>Sat, 06 Feb 2021 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/tags/dotnet/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Endpoints</title>
+        <link>http://localhost:1313/tags/endpoints/</link>
+        <pubDate>Sat, 06 Feb 2021 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/tags/endpoints/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>REST</title>
+        <link>http://localhost:1313/tags/rest/</link>
+        <pubDate>Sat, 06 Feb 2021 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/tags/rest/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Distributedsystem</title>
+        <link>http://localhost:1313/tags/distributedsystem/</link>
+        <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/tags/distributedsystem/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Mongodb</title>
+        <link>http://localhost:1313/tags/mongodb/</link>
+        <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/tags/mongodb/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Redis</title>
+        <link>http://localhost:1313/tags/redis/</link>
+        <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/tags/redis/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Clean</title>
+        <link>http://localhost:1313/tags/clean/</link>
+        <pubDate>Wed, 19 Sep 2018 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/tags/clean/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Cqrs</title>
+        <link>http://localhost:1313/tags/cqrs/</link>
+        <pubDate>Wed, 19 Sep 2018 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/tags/cqrs/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Ddd</title>
+        <link>http://localhost:1313/tags/ddd/</link>
+        <pubDate>Wed, 19 Sep 2018 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/tags/ddd/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>

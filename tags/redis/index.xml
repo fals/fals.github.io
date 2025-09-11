@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Redis on blog.fals.io</title>
+        <link>http://localhost:1313/tags/redis/</link>
+        <description>Recent content in Redis on blog.fals.io</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>Filipe Lima</copyright>
+        <lastBuildDate>Tue, 13 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/redis/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Distributed Lock</title>
+        <link>http://localhost:1313/posts/2020-10-13-distributed-lock/</link>
+        <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/posts/2020-10-13-distributed-lock/</guid>
+        <description>&lt;img src="http://localhost:1313/img/fence.jpg" alt="Featured image of post Distributed Lock" /&gt;&lt;p&gt;A common issue in distributed system is having multiple consumers hosted in different nodes competing for the same resources. In the example bellow a producer creates files in a file share and multiple consumers compete for those files to parse and persist the data.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/distributed-lock-redis.svg.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;-best-effort&#34;&gt;🔒 Best-effort
+&lt;/h2&gt;&lt;p&gt;A simple approach to implement a reliable lock is by best-effort, &lt;strong&gt;set-if-not-exists&lt;/strong&gt;. By best-effort it means that the lock has no guarantee that it will always work, mainly because of network issues or in cases the node that requested the lock crashes without finishing its work and releasing it.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The locks are approximate and may fail occasionally&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;-fence-token&#34;&gt;🔑 Fence Token
+&lt;/h2&gt;&lt;p&gt;The implementation of a fence token by correctness would involve using a consensus system with an incremental key. For this implementation, the fence token is not as reliable as what a good consesus system implements, it is a unique token to prevent a node releasing a resource locked by another node. Basically, &lt;strong&gt;delete-if-exists-and-token-matches&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;-leasing-expiration&#34;&gt;⏲️ Leasing Expiration
+&lt;/h2&gt;&lt;p&gt;For the reasons I pointed before, the implementation by best-effort can&amp;rsquo;t guarantee that the lock will be released by a node if it suddenly crashes or a network problem happens when the node tries to unlock, resulting in a deadlock. Putting an expiration will allow the lock release automatically by redis cleaning up the string after certain time.&lt;/p&gt;
+&lt;h2 id=&#34;-conclusion&#34;&gt;👉 Conclusion
+&lt;/h2&gt;&lt;p&gt;Use it carefully, keep in mind that this is a best-effort implementation. I recomend reading Martin Kleppmann&amp;rsquo;s blog below, also his book, mainly chapter 8 and 9, which cover in depth distributed concerns. Another thing, don&amp;rsquo;t use Red-Lock :P, It may fail you badly.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve implemented an example in C# with .Net and Docker, you can scale the consumers and play with the code to make it fail, it will 😁. The producer do not require locks in the sample code, only consumers.&lt;/p&gt;
+&lt;p&gt;The source code is hosted on GitHub: &lt;a href=&#34;https://github.com/fals/distributed-lock&#34; target=&#34;_blank&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/fals/distributed-lock&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/fals/distributed-lock&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;-reference&#34;&gt;📖 Reference
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321/ref=sr_1_1?ie=UTF8&amp;qid=1537824366&amp;sr=8-1&amp;keywords=designing+data-intensive+applications&#34; target=&#34;_blank&#34;&gt;Designing Data Intensive Applications&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html&#34; target=&#34;_blank&#34;&gt;How to do distributed locking
+&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

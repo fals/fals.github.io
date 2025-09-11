@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="A compressed summary of patterns and practices for EDA">
+<title>Event Driven Architectures 101</title>
+
+<link rel='canonical' href='http://localhost:1313/posts/2024-11-11-event-driven-architectures-101/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Event Driven Architectures 101">
+<meta property='og:description' content="A compressed summary of patterns and practices for EDA">
+<meta property='og:url' content='http://localhost:1313/posts/2024-11-11-event-driven-architectures-101/'>
+<meta property='og:site_name' content='blog.fals.io'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='architecture' /><meta property='article:tag' content='EDA' /><meta property='article:tag' content='events' /><meta property='article:tag' content='cloud native' /><meta property='article:published_time' content='2024-11-11T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-11-11T00:00:00&#43;00:00'/><meta property='og:image' content='http://localhost:1313/img/jenga.jpg' />
+<meta name="twitter:site" content="@fals_xp">
+    <meta name="twitter:creator" content="@fals_xp"><meta name="twitter:title" content="Event Driven Architectures 101">
+<meta name="twitter:description" content="A compressed summary of patterns and practices for EDA"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/jenga.jpg' />
+    <link rel="shortcut icon" href="/img/blog-icon.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    <img src="https://github.com/fals.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">blog.fals.io</a></h1>
+            <h2 class="site-description">Blog about Software Architeture awesomess!</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://facebook.com/fals.xp'
+                        target="_blank"
+                        title="Facebook"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V327.7H138.4V256h55.8v-54.7c0-55.3 33.8-85.3 82.9-85.3 23.6 0 43.8 1.8 49.7 2.6v62.9h-37.1c-26.8 0-32 12.8-32 31.4v41.3h70l-9.1 71.7h-60.9v176.8C429.3 476.8 512 376 512 256z" fill="currentColor"/>
+</svg>
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/fals'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://stackoverflow.com/users/2072198/fals'
+                        target="_blank"
+                        title="Stack Overflow"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M290.7 311L95 269.7 86.8 309l195.7 41zm51-87L188.2 95.7l-25.5 30.8 153.5 128.3zm-31.2-201l-196.3 94.3L50 155.5 246.3 61.2zM32.5 395.2L28.8 416l290.7 65.2 3.7-20.8zM192 448c-8.1 0-14.9 6.2-15.7 14.2l-1.2 14.2c-.2 2.5 1.6 4.6 4.1 4.6h25.6c2.5 0 4.3-2.1 4.1-4.6l-1.2-14.2C206.9 454.2 200.1 448 192 448z" fill="currentColor"/></svg>
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/fals_xp'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/posts' >
+                
+                
+                
+                <span>Posts</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/bookshelf' >
+                
+                
+                
+                <span>Book Shelf</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/aboutme' >
+                
+                
+                
+                <span>About Me</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#brokers">Brokers</a></li>
+    <li><a href="#mediators">Mediators</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#delta-events">Delta Events</a></li>
+    <li><a href="#fact-events">Fact Events</a></li>
+    <li><a href="#stablish-a-pattern-that-everyone-would-follow">Stablish a pattern that everyone would follow</a></li>
+    <li><a href="#monorepos">Monorepos</a></li>
+    <li><a href="#decentralized-version-control">Decentralized version control</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#streaming">Streaming</a></li>
+    <li><a href="#dual-write-problem">Dual Write Problem</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/posts/2024-11-11-event-driven-architectures-101/">
+                
+                    <img src="/img/jenga.jpg" loading="lazy" alt="Featured image of post Event Driven Architectures 101" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/2024-11-11-event-driven-architectures-101/">Event Driven Architectures 101</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            A compressed summary of patterns and practices for EDA
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 11, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    8 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="introduction">Introduction
+</h1><p>This is a high level post with 101 takes on Event Driven Architecture. This post contains compressed and summarized information to guide you through some common patterns and practices, later on you can dig deeper based on the topics.</p>
+<p>Distributed systems and cloud native are the norm nowadays, and EDA aligns with both.</p>
+<h1 id="eda---event-driven-architectures">EDA - Event Driven Architectures
+</h1><p>Event-driven architectures often being designed atop <em>message-driven architectures</em>, in which most of the work is done async, service communication will be mainly through events sent to message systems queues or topics. There are two common implementations for this pattern <em>Broker</em> and <em>Mediator</em>.</p>
+<p><img src="/img/2024-11-11-event-driven-architectures-101/101_01_eda.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Fig.01"
+	
+	
+></p>
+<h2 id="brokers">Brokers
+</h2><p>The broken has the elements bellow:</p>
+<ul>
+<li>queues or topics</li>
+<li>initiating events or commands</li>
+<li>internal events to the orchestration</li>
+<li>event processors</li>
+</ul>
+<p><img src="/img/2024-11-11-event-driven-architectures-101/101_02_broker.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Fig.02"
+	
+	
+></p>
+<p>It creates a lot of complexity because has movable parts and makes difficult to scale, mainly for error handling.</p>
+<h2 id="mediators">Mediators
+</h2><p>In this pattern you have a centralized mediator that can be transactional and will handle the orchestration in a single place, and can ensure errors don&rsquo;t occur during the process, and for example makes easier to generate a single notification message for external systems.</p>
+<p><img src="/img/2024-11-11-event-driven-architectures-101/101_03_mediator.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="Fig.03"
+	
+	
+></p>
+<h1 id="events">Events
+</h1><p>Events are a lightweight message that carries information about changes in areas of the system and they come in two flavors, <em>Deltas</em> and <em>Facts</em>.</p>
+<h2 id="delta-events">Delta Events
+</h2><p>A Delta event could represent the change in risk for a customer. It might include information about what specifically changed and by how much.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;specversion&#34;</span> <span class="p">:</span> <span class="s2">&#34;1.0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;type&#34;</span> <span class="p">:</span> <span class="s2">&#34;RiskDeltaEvent&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;source&#34;</span> <span class="p">:</span> <span class="s2">&#34;/your-risk-system&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;id&#34;</span> <span class="p">:</span> <span class="s2">&#34;unique-delta-event-id&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;time&#34;</span> <span class="p">:</span> <span class="s2">&#34;2024-02-23T12:00:00Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;data&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;customerId&#34;</span> <span class="p">:</span> <span class="s2">&#34;12345&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;changeType&#34;</span> <span class="p">:</span> <span class="s2">&#34;RiskIncrease&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;changeAmount&#34;</span> <span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;reason&#34;</span> <span class="p">:</span> <span class="s2">&#34;Unusual transaction pattern detected&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="fact-events">Fact Events
+</h2><p>A Fact event could represent the current state of the customer risk, providing a snapshot of the risk at a particular point in time.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;specversion&#34;</span> <span class="p">:</span> <span class="s2">&#34;1.0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;type&#34;</span> <span class="p">:</span> <span class="s2">&#34;RiskFactEvent&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;source&#34;</span> <span class="p">:</span> <span class="s2">&#34;/your-risk-system&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;id&#34;</span> <span class="p">:</span> <span class="s2">&#34;unique-fact-event-id&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;time&#34;</span> <span class="p">:</span> <span class="s2">&#34;2024-02-23T12:00:00Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;data&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;customerId&#34;</span> <span class="p">:</span> <span class="s2">&#34;12345&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;currentRiskLevel&#34;</span> <span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;details&#34;</span> <span class="p">:</span> <span class="s2">&#34;High risk due to recent suspicious activity&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="stablish-a-pattern-that-everyone-would-follow">Stablish a pattern that everyone would follow
+</h2><p>Events should be treat as contracts, you cannot afford having breaking changes, given that we have different systems that might not be tight coupled to strong typed definitions of the events.</p>
+<p>The three rules are a must:</p>
+<ol>
+<li>Never delete anything</li>
+<li>Everything new is optional</li>
+<li>Do not change behavior without versioning</li>
+</ol>
+<p>Events should have a proper definition of enveloping, timestamp, type, versioning, origin and content-type.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;specversion&#34;</span> <span class="p">:</span> <span class="s2">&#34;1.0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;type&#34;</span> <span class="p">:</span> <span class="s2">&#34;com.github.pull_request.opened&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;source&#34;</span> <span class="p">:</span> <span class="s2">&#34;https://github.com/cloudevents/spec/pull&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span> <span class="p">:</span> <span class="s2">&#34;123&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;id&#34;</span> <span class="p">:</span> <span class="s2">&#34;A234-1234-1234&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;time&#34;</span> <span class="p">:</span> <span class="s2">&#34;2018-04-05T17:31:00Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;comexampleextension1&#34;</span> <span class="p">:</span> <span class="s2">&#34;value&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;comexampleothervalue&#34;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;datacontenttype&#34;</span> <span class="p">:</span> <span class="s2">&#34;text/xml&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;data&#34;</span> <span class="p">:</span> <span class="s2">&#34;&lt;much wow=\&#34;xml\&#34;/&gt;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>For any breaking changes, consider keeping the versions until everyone migrated, and create a new version to allow consumers to benefit from new behavior.</p></blockquote>
+<h2 id="monorepos">Monorepos
+</h2><p>In monorepos, given all code is in the same place, you can create the event specification and share across all services. This is a good approach because:</p>
+<ul>
+<li>Changes in the event will be propagated everywhere you use without needing changes in consumers</li>
+<li>Reduces the chances of breaking the event</li>
+<li>Easier to track what is used, deprecation and versioning changes</li>
+</ul>
+<h2 id="decentralized-version-control">Decentralized version control
+</h2><p>In a case services owned by different teams are not in the same repository or in multiple the potencial to break things are higher, so following a pattern and enforce the three rules stated before are a must.</p>
+<p>I&rsquo;ve seen projects and systems having a repository with all the contracts and publish packages versions with changes. It creates a huge mess with systems that contains broken versions of contracts and events that failed too be parsed by consumers because of different packages versions distributed across hundreds of microservices with different versions of the package.</p>
+<blockquote>
+<p>Just create a strong typed object in the place the event is consumed with the fields that are used from that event. The duplication will pay-off.</p></blockquote>
+<p>There&rsquo;s a project called <a class="link" href="https://cloudevents.io/"  target="_blank" rel="noopener"
+    >CloudEvents</a> that meant to solve this problem, consider using some patterns they created.</p>
+<blockquote>
+<p>Avoid packing event contracts in packages and referencing on your services, it might lead to unprecendet side effects if a package version contains a bug in combination with various microservices importing that package deployed independently.</p></blockquote>
+<h1 id="delivery-guarantees">Delivery Guarantees
+</h1><blockquote>
+<p>There are only two hard problems in distributed systems: 2. Exactly-once delivery 1. Guarantee order of messages 2. Exactly-once delivery.
+Mathias Verraes</p></blockquote>
+<p>Delivery guarantees are important and should never be out of scope when designing EDA system as they deeply impact how you would handle messages and the complexity of receiving the same event once, multiple times or even never.</p>
+<p>We have three general delivery guarantees.</p>
+<ul>
+<li><em>Best-effort</em>: Data loss is possible, message might not be send and it is suitable when you don&rsquo;t care of processing all the events.</li>
+<li><em>At-least-once</em>: Message can be delivery more than once, it increases the complexity of your system if compared with #best-effor but it is the most common case and less expensive to implement than #exact-once.</li>
+<li><em>Exactly-once</em>: The message sent will never be duplicated so you must guarantee its processing. This is extremely difficult to handle and the most complex option, replaying data is almost impossible in this scenario and should be carefully considered weather it is necessary to have it, given #at-least-once can do better with less cost.</li>
+</ul>
+<p>Every message system has its own delivery guarantee in place, as for example GCP Pub/Sub supports even #exact-once but by default it is #at-least-once. You can see more about this case in their official documentation, <a class="link" href="https://cloud.google.com/blog/products/data-analytics/cloud-pub-sub-exactly-once-delivery-feature-is-now-ga"  target="_blank" rel="noopener"
+    >Cloud Pub/Sub Exactly-once Delivery feature is now Generally Available (GA) - Google Cloud Blog</a>.</p>
+<h1 id="message-systems">Message Systems
+</h1><p>It is a kind of database but optimized for handling messages streams, like queues and topics, and works in a centralized model allowing clientes to connect, produce and consume messages. Message retention works in a different way, usually consumed messages are deleted as son Ack is received.</p>
+<ul>
+<li><a class="link" href="https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview"  target="_blank" rel="noopener"
+    >Introduction to Azure Service Bus, an enterprise message broker - Azure Service Bus - Microsoft Learn</a></li>
+<li><a class="link" href="https://cloud.google.com/pubsub/docs/overview"  target="_blank" rel="noopener"
+    >What is Pub/Sub? - Cloud Pub/Sub Documentation-Google Cloud</a></li>
+<li><a class="link" href="https://aws.amazon.com/sqs/"  target="_blank" rel="noopener"
+    >Message Queuing Service - Amazon Simple Queue Service - AWS</a></li>
+<li><a class="link" href="https://www.rabbitmq.com/"  target="_blank" rel="noopener"
+    >RabbitMQ: easy to use, flexible messaging and streaming — RabbitMQ</a></li>
+</ul>
+<h2 id="streaming">Streaming
+</h2><p>Event streaming platforms like Kafka operates on unbounded stream of data, with higher ordering guarantees and longer retention of messages.</p>
+<p>Stream systems are known by the high horizontal scalability and use in near-real-time data processing.</p>
+<ul>
+<li><a class="link" href="https://kafka.apache.org/"  target="_blank" rel="noopener"
+    >Apache Kafka</a></li>
+<li><a class="link" href="https://pulsar.apache.org/"  target="_blank" rel="noopener"
+    >Apache Pulsar - Apache Pulsar</a></li>
+</ul>
+<h2 id="dual-write-problem">Dual Write Problem
+</h2><p>This is how it should look in terms of software architecture: The outbox pattern visualized. In summary, the dual write problem is <strong>an issue that sometimes crops up when creating complex systems with event-driven design</strong>. However, utilizing chaining and event duplication practices helps you resolve this issue.</p>
+<p>There&rsquo;s a very good video and documentation from Confluent on this topic.</p>
+<ul>
+<li><a class="link" href="https://www.youtube.com/watch?v=FpLXCBr7ucA"  target="_blank" rel="noopener"
+    >What is the Dual Write Problem? - Designing Event-Driven Microservices - YouTube</a></li>
+<li><a class="link" href="https://www.confluent.io/blog/dual-write-problem/"  target="_blank" rel="noopener"
+    >Understanding the Dual-Write Problem and Its Solutions</a></li>
+</ul>
+<h1 id="derived-data-and-eventual-consistency">Derived data and Eventual Consistency
+</h1><p>In EDA you start having copies of the same data scattered over multiple services for different reasons and purposes, as for example, enrich or aggregate, provide view only performant services for heavy queries and so on.</p>
+<ul>
+<li>System of records is the source of truth of data.</li>
+<li>Derived data is data from the system of records that got transformed.</li>
+</ul>
+<p>Data is replicated as events takes times to propagate, you might encounter multiple inconsistences in derived data, but the inconsistences are temporary and resolves it self with time.</p>
+<h1 id="pitfalls">Pitfalls
+</h1><ul>
+<li>Not treating events as same as any API schema, or contract can lead to unprecedent distributed disasters.</li>
+<li>It is very difficult to introduce EDA in systems that have strict need of order and ACID transactions, basically, a system with high tolerance to eventuality.</li>
+<li>Should never design events with assumption of correlation between events.</li>
+<li>Going to full Choreography means proper use of async <a class="link" href="https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/saga/saga"  target="_blank" rel="noopener"
+    >Saga pattern - Azure Design Patterns - Microsoft Learn</a> to ensure consistent state.</li>
+<li>It is important to understand delivery guarantees, <em>At-least once</em> is the most used one, consumers should be prepared to receive duplicates.</li>
+<li>Vendor lock, not wrapping or creating abstraction can introduce friction while introducing or migrating to different message systems.</li>
+<li>Relying heavily on derived data for business rules, the system of records is the source of truth, sometimes direct API call can save your lots of complexity.</li>
+<li>Selecting the wrong Message Broker, trying to implement real time without streaming and using streaming without needing it can lead to unnecessary complexity, use the right tool.</li>
+</ul>
+<h1 id="closing">Closing
+</h1><p>This is my 101 guide about modern Event Driven Architectures, if you are interested in seeing some code and explore more the complexity of EDA, I recommend taking a look at <a class="link" href="https://github.com/dapr/dapr"  target="_blank" rel="noopener"
+    >dapr/dapr: Dapr is a portable, event-driven, runtime for building distributed applications across cloud and edge.</a>, the framework is an opinionated way on building distributed systems, but the main take is that they implement a lot of good practices, and reading some good and cleaver code as in their repository can help you gasp most of the good and bad parts.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/architecture/">Architecture</a>
+        
+            <a href="/tags/eda/">EDA</a>
+        
+            <a href="/tags/events/">Events</a>
+        
+            <a href="/tags/cloud-native/">Cloud Native</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "fals" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2025 Filipe Lima
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.31.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.40ed64946e243f7aa8c6d1534791c5bed1795b18fda23259287d06bf257d86f7.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
