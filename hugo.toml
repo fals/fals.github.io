@@ -118,18 +118,18 @@ hasCJKLanguage = false
     url = "https://twitter.com/fals_xp"
     [menu.social.params]
       icon = "brand-twitter"
-  [[menu.social]]
-    identifier = "stackoverflow"
-    name = "Stack Overflow"
-    url = "https://stackoverflow.com/users/2072198/fals"
-    [menu.social.params]
-      icon = "brand-stackoverflow"
-  [[menu.social]]
-      identifier = "facebook"
-      name = "Facebook"
-      url = "https://facebook.com/fals.xp"
-      [menu.social.params]
-          icon = "brand-facebook"
+  # [[menu.social]]
+  #   identifier = "stackoverflow"
+  #   name = "Stack Overflow"
+  #   url = "https://stackoverflow.com/users/2072198/fals"
+  #   [menu.social.params]
+  #     icon = "brand-stackoverflow"
+  # [[menu.social]]
+  #     identifier = "facebook"
+  #     name = "Facebook"
+  #     url = "https://facebook.com/fals.xp"
+  #     [menu.social.params]
+  #         icon = "brand-facebook"
 
 
 [related]
