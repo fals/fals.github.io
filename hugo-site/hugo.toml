@@ -1,7 +1,7 @@
 
 baseURL = "https://blog.fals.io"
 languageCode = "en-us"
-theme = "stack"
+theme = "hugo-theme-stack"
 title = "blog.fals.io"
 disqusShortname = "fals"
 copyright = "Filipe Lima"
