@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Redis on blog.fals.io</title>
+    <link>http://localhost:1313/tags/redis/</link>
+    <description>Recent content in Redis on blog.fals.io</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>Filipe Lima</copyright>
+    <lastBuildDate>Tue, 13 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Distributed Lock</title>
+      <link>http://localhost:1313/posts/2020-10-13-distributed-lock/</link>
+      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2020-10-13-distributed-lock/</guid>
+      <description>&lt;p&gt;A common issue in distributed system is having multiple consumers hosted in different nodes competing for the same resources. In the example bellow a producer creates files in a file share and multiple consumers compete for those files to parse and persist the data.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/distributed-lock-redis.svg.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;-best-effort&#34;&gt;🔒 Best-effort&lt;/h2&gt;&#xA;&lt;p&gt;A simple approach to implement a reliable lock is by best-effort, &lt;strong&gt;set-if-not-exists&lt;/strong&gt;. By best-effort it means that the lock has no guarantee that it will always work, mainly because of network issues or in cases the node that requested the lock crashes without finishing its work and releasing it.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

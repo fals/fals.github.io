@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Clean on blog.fals.io</title>
+    <link>http://localhost:1313/tags/clean/</link>
+    <description>Recent content in Clean on blog.fals.io</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>Filipe Lima</copyright>
+    <lastBuildDate>Wed, 19 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/clean/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CQRS Translated to Clean Architecture</title>
+      <link>http://localhost:1313/posts/2018-09-19-cqrs-clean-architecture/</link>
+      <pubDate>Wed, 19 Sep 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2018-09-19-cqrs-clean-architecture/</guid>
+      <description>&lt;p&gt;I met Clean Architecture at first hand reading Uncle Bob&amp;rsquo;s book with the same title, and I immediately fell in love with the simplicity and applicability of his principles. Clean Architecture is all about enforce right policy rules to the way in which your software architecture is organized and more important, making it evolvable, delaying technology decisions as much as possible, as the Uncle Bob himself stated:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;The strategy behind that facilitation is to leave as many options open as possible, for as long as possible, Robert C. Martin&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

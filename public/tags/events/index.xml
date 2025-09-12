@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Events on blog.fals.io</title>
+    <link>http://localhost:1313/tags/events/</link>
+    <description>Recent content in Events on blog.fals.io</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>Filipe Lima</copyright>
+    <lastBuildDate>Mon, 11 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/events/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Event Driven Architectures 101</title>
+      <link>http://localhost:1313/posts/2024-11-11-event-driven-architectures-101/</link>
+      <pubDate>Mon, 11 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2024-11-11-event-driven-architectures-101/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;&#xA;&lt;p&gt;This is a high level post with 101 takes on Event Driven Architecture. This post contains compressed and summarized information to guide you through some common patterns and practices, later on you can dig deeper based on the topics.&lt;/p&gt;&#xA;&lt;p&gt;Distributed systems and cloud native are the norm nowadays, and EDA aligns with both.&lt;/p&gt;&#xA;&lt;h1 id=&#34;eda---event-driven-architectures&#34;&gt;EDA - Event Driven Architectures&lt;/h1&gt;&#xA;&lt;p&gt;Event-driven architectures often being designed atop &lt;em&gt;message-driven architectures&lt;/em&gt;, in which most of the work is done async, service communication will be mainly through events sent to message systems queues or topics. There are two common implementations for this pattern &lt;em&gt;Broker&lt;/em&gt; and &lt;em&gt;Mediator&lt;/em&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

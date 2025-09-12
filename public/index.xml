@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog.fals.io</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on blog.fals.io</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>Filipe Lima</copyright>
+    <lastBuildDate>Mon, 11 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Event Driven Architectures 101</title>
+      <link>http://localhost:1313/posts/2024-11-11-event-driven-architectures-101/</link>
+      <pubDate>Mon, 11 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2024-11-11-event-driven-architectures-101/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;&#xA;&lt;p&gt;This is a high level post with 101 takes on Event Driven Architecture. This post contains compressed and summarized information to guide you through some common patterns and practices, later on you can dig deeper based on the topics.&lt;/p&gt;&#xA;&lt;p&gt;Distributed systems and cloud native are the norm nowadays, and EDA aligns with both.&lt;/p&gt;&#xA;&lt;h1 id=&#34;eda---event-driven-architectures&#34;&gt;EDA - Event Driven Architectures&lt;/h1&gt;&#xA;&lt;p&gt;Event-driven architectures often being designed atop &lt;em&gt;message-driven architectures&lt;/em&gt;, in which most of the work is done async, service communication will be mainly through events sent to message systems queues or topics. There are two common implementations for this pattern &lt;em&gt;Broker&lt;/em&gt; and &lt;em&gt;Mediator&lt;/em&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Designing APIs using Endpoints</title>
+      <link>http://localhost:1313/posts/2021-02-06-end-points/</link>
+      <pubDate>Sat, 06 Feb 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2021-02-06-end-points/</guid>
+      <description>&lt;h2 id=&#34;-thats-how-we-used-to-do-it&#34;&gt;📚 That&amp;rsquo;s how we used to do it&lt;/h2&gt;&#xA;&lt;p&gt;When designing services a common practice in the industry is creating a granular set of APIs at the same place, having in single file or class the whole specification of routes and methods aggregated by a reason, usually by domain capability.&lt;/p&gt;&#xA;&lt;p&gt;This design was historically driven by how frameworks were developed to provide such capability to web service applications, for example, ASP.NET and Spring, in which the &lt;strong&gt;Controller&lt;/strong&gt; is the base for any API.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Distributed Lock</title>
+      <link>http://localhost:1313/posts/2020-10-13-distributed-lock/</link>
+      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2020-10-13-distributed-lock/</guid>
+      <description>&lt;p&gt;A common issue in distributed system is having multiple consumers hosted in different nodes competing for the same resources. In the example bellow a producer creates files in a file share and multiple consumers compete for those files to parse and persist the data.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/distributed-lock-redis.svg.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;-best-effort&#34;&gt;🔒 Best-effort&lt;/h2&gt;&#xA;&lt;p&gt;A simple approach to implement a reliable lock is by best-effort, &lt;strong&gt;set-if-not-exists&lt;/strong&gt;. By best-effort it means that the lock has no guarantee that it will always work, mainly because of network issues or in cases the node that requested the lock crashes without finishing its work and releasing it.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>CQRS Translated to Clean Architecture</title>
+      <link>http://localhost:1313/posts/2018-09-19-cqrs-clean-architecture/</link>
+      <pubDate>Wed, 19 Sep 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2018-09-19-cqrs-clean-architecture/</guid>
+      <description>&lt;p&gt;I met Clean Architecture at first hand reading Uncle Bob&amp;rsquo;s book with the same title, and I immediately fell in love with the simplicity and applicability of his principles. Clean Architecture is all about enforce right policy rules to the way in which your software architecture is organized and more important, making it evolvable, delaying technology decisions as much as possible, as the Uncle Bob himself stated:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;The strategy behind that facilitation is to leave as many options open as possible, for as long as possible, Robert C. Martin&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About me</title>
+      <link>http://localhost:1313/aboutme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/aboutme/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m Filipe Lima, former Software Architect, here is a short description about what I&amp;rsquo;ve done and what I do:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Product driven mindset.&lt;/li&gt;&#xA;&lt;li&gt;Making decisions based on trade-offs, industry standards, hypotheses and data driven approaches.&lt;/li&gt;&#xA;&lt;li&gt;Experience with Data Intensive Applications.&lt;/li&gt;&#xA;&lt;li&gt;Implementing Distributed Systems with Microservices and Messaging Patterns.&lt;/li&gt;&#xA;&lt;li&gt;Migrating legacy systems from monolithic Architectures to new Cloud Native approach.&lt;/li&gt;&#xA;&lt;li&gt;Understands Cloud Economics.&lt;/li&gt;&#xA;&lt;li&gt;Experience with all major Cloud Providers, GCP, AWS and Azure.&lt;/li&gt;&#xA;&lt;li&gt;Reversing engineering, debug and fixing hard problems.&lt;/li&gt;&#xA;&lt;li&gt;Experience in maintaining large Test Suites on scale.&lt;/li&gt;&#xA;&lt;li&gt;Knows Kubernetes, ran and deployed large and complex applications on it.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;After 10+ years in Enterprise and &lt;strong&gt;Microsft .NET&lt;/strong&gt; I shifted to &lt;strong&gt;golang&lt;/strong&gt; and I now develop automation tools for the main Managed Kubernetes Solutions at CAST AI. Big time reversing engineering and creating software that is used enginners like me and SREs all around the world.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Archives</title>
+      <link>http://localhost:1313/archives/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archives/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Book Shelf</title>
+      <link>http://localhost:1313/bookshelf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bookshelf/</guid>
+      <description>&lt;p&gt;Here&amp;rsquo;s a what I think as a list of useful books, which I have in my personal library. They are great way of learning. You should keep some of them on your desk, because its useful having reliable source as close as possible :D.&lt;/p&gt;&#xA;&lt;h2 id=&#34;my-bookshelf&#34;&gt;My bookshelf&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-adaptive-code-via-c-2nd-edition&#34;&gt;1. Adaptive Code via C#, 2nd Edition&lt;/h3&gt;&#xA;&lt;h3 id=&#34;2-building-evolutionary-architecture&#34;&gt;2. Building Evolutionary Architecture&lt;/h3&gt;&#xA;&lt;h3 id=&#34;3-building-microservices&#34;&gt;3. Building Microservices&lt;/h3&gt;&#xA;&lt;h3 id=&#34;4-implementing-domain-driven-design&#34;&gt;4. Implementing Domain-Driven Design&lt;/h3&gt;&#xA;&lt;h3 id=&#34;5-clean-architecture&#34;&gt;5. Clean Architecture&lt;/h3&gt;&#xA;&lt;h3 id=&#34;6-continuous-delivery&#34;&gt;6. Continuous Delivery&lt;/h3&gt;&#xA;&lt;h3 id=&#34;7-designing-data-intensive-applications&#34;&gt;7. Designing Data Intensive Applications&lt;/h3&gt;&#xA;&lt;h3 id=&#34;8-test-driven-development-by-example&#34;&gt;8. Test Driven Development By Example&lt;/h3&gt;&#xA;&lt;h3 id=&#34;9-the-devops-handbook&#34;&gt;9. The DevOps Handbook&lt;/h3&gt;&#xA;&lt;h3 id=&#34;10-restful-web-services-cookbook&#34;&gt;10. Restful Web Services Cookbook&lt;/h3&gt;&#xA;&lt;h3 id=&#34;11-architecting-for-the-enterprise-2nd-edition&#34;&gt;11. Architecting for the Enterprise, 2nd Edition&lt;/h3&gt;&#xA;&lt;h3 id=&#34;12-making-work-visible&#34;&gt;12. Making Work Visible&lt;/h3&gt;&#xA;&lt;h3 id=&#34;13-lean-for-the-enterprise&#34;&gt;13. Lean for the Enterprise&lt;/h3&gt;&#xA;&lt;h3 id=&#34;14-running-lean&#34;&gt;14. Running Lean&lt;/h3&gt;</description>
+    </item>
+    <item>
+      <title>Search</title>
+      <link>http://localhost:1313/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/search/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

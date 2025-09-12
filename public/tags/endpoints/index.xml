@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Endpoints on blog.fals.io</title>
+    <link>http://localhost:1313/tags/endpoints/</link>
+    <description>Recent content in Endpoints on blog.fals.io</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>Filipe Lima</copyright>
+    <lastBuildDate>Sat, 06 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/endpoints/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Designing APIs using Endpoints</title>
+      <link>http://localhost:1313/posts/2021-02-06-end-points/</link>
+      <pubDate>Sat, 06 Feb 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2021-02-06-end-points/</guid>
+      <description>&lt;h2 id=&#34;-thats-how-we-used-to-do-it&#34;&gt;📚 That&amp;rsquo;s how we used to do it&lt;/h2&gt;&#xA;&lt;p&gt;When designing services a common practice in the industry is creating a granular set of APIs at the same place, having in single file or class the whole specification of routes and methods aggregated by a reason, usually by domain capability.&lt;/p&gt;&#xA;&lt;p&gt;This design was historically driven by how frameworks were developed to provide such capability to web service applications, for example, ASP.NET and Spring, in which the &lt;strong&gt;Controller&lt;/strong&gt; is the base for any API.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,161 @@
+
+baseURL = "https://blog.fals.io"
+languageCode = "en-us"
+theme = "hugo-theme-stack"
+title = "blog.fals.io"
+disqusShortname = "fals"
+copyright = "Filipe Lima"
+
+DefaultContentLanguage = "en"
+hasCJKLanguage = false
+
+[services]
+  [services.disqus]
+    shortname = "fals"
+
+[permalinks]
+  post = "/:year-:month-:day-:title/"
+
+[params]
+  mainSections = ["posts"]
+  featuredImageField = "image"
+  rssFullContent = true
+  favicon = "/img/blog-icon.png" 
+
+  [params.footer]
+    since = 2018 
+    customText = ""
+
+  [params.dateFormat]
+    published = "Jan 02, 2006"
+    lastUpdated = "Jan 02, 2006 15:04 MST"
+
+  [params.sidebar]
+    emoji = "🍥"
+    subtitle = "Blog about Software Architeture awesomess!" 
+    [params.sidebar.avatar]
+      enabled = true
+      local = false
+      src = "https://github.com/fals.png" 
+
+  [params.article]
+    math = false
+    toc = true
+    readingTime = true
+    [params.article.license]
+      enabled = true
+      default = "Licensed under CC BY-NC-SA 4.0"
+
+  [params.comments]
+    enabled = true
+    provider = "disqus"
+
+  [params.widgets]
+    [[params.widgets.homepage]]
+      type = "search"
+    [[params.widgets.homepage]]
+      type = "archives"
+      [params.widgets.homepage.params]
+        limit = 5
+    [[params.widgets.homepage]]
+      type = "categories"
+      [params.widgets.homepage.params]
+        limit = 10
+    [[params.widgets.homepage]]
+      type = "tag-cloud"
+      [params.widgets.homepage.params]
+        limit = 10
+    [[params.widgets.page]]
+      type = "toc"
+
+  [params.opengraph]
+    [params.opengraph.twitter]
+      site = "fals_xp" 
+      card = "summary_large_image"
+
+  [params.defaultImage]
+    [params.defaultImage.opengraph]
+      enabled = false
+      local = false
+      src = ""
+
+  [params.colorScheme]
+    toggle = true
+    default = "auto"
+
+  [params.imageProcessing]
+    [params.imageProcessing.cover]
+      enabled = true
+    [params.imageProcessing.content]
+      enabled = true
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts"
+    weight = -100
+  [[menu.main]]
+    identifier = "bookshelf"
+    name = "Book Shelf"
+    url = "/bookshelf"
+    weight = -90
+  [[menu.main]]
+    identifier = "aboutme"
+    name = "About Me"
+    url = "/aboutme"
+    weight = -80
+
+  [[menu.social]]
+    identifier = "github"
+    name = "GitHub"
+    url = "https://github.com/fals"
+    [menu.social.params]
+      icon = "brand-github"
+  [[menu.social]]
+    identifier = "twitter"
+    name = "Twitter"
+    url = "https://twitter.com/fals_xp"
+    [menu.social.params]
+      icon = "brand-twitter"
+  [[menu.social]]
+    identifier = "stackoverflow"
+    name = "Stack Overflow"
+    url = "https://stackoverflow.com/users/2072198/fals"
+    [menu.social.params]
+      icon = "brand-stackoverflow"
+  [[menu.social]]
+      identifier = "facebook"
+      name = "Facebook"
+      url = "https://facebook.com/fals.xp"
+      [menu.social.params]
+          icon = "brand-facebook"
+
+
+[related]
+  includeNewer = true
+  threshold = 60
+  toLower = false
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+  [[related.indices]]
+    name = "categories"
+    weight = 200
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    endLevel = 4
+    ordered = true
+    startLevel = 2
+  [markup.highlight]
+    noClasses = false
+    codeFences = true
+    guessSyntax = true
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    tabWidth = 4
