@@ -448,20 +448,43 @@ parts in total isolation, Dino Esposito, Architecting for the Enterprise 2nd edi
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>http://localhost:1313/aboutme/</guid>
-        <description>&lt;img src="http://localhost:1313/img/about-me-image.jpg" alt="Featured image of post About me" /&gt;&lt;p&gt;I&amp;rsquo;m Filipe Lima, former Software Architect, here is a short description about what I&amp;rsquo;ve done and what I do:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Product driven mindset.&lt;/li&gt;
-&lt;li&gt;Making decisions based on trade-offs, industry standards, hypotheses and data driven approaches.&lt;/li&gt;
-&lt;li&gt;Experience with Data Intensive Applications.&lt;/li&gt;
-&lt;li&gt;Implementing Distributed Systems with Microservices and Messaging Patterns.&lt;/li&gt;
-&lt;li&gt;Migrating legacy systems from monolithic Architectures to new Cloud Native approach.&lt;/li&gt;
-&lt;li&gt;Understands Cloud Economics.&lt;/li&gt;
-&lt;li&gt;Experience with all major Cloud Providers, GCP, AWS and Azure.&lt;/li&gt;
-&lt;li&gt;Reversing engineering, debug and fixing hard problems.&lt;/li&gt;
-&lt;li&gt;Experience in maintaining large Test Suites on scale.&lt;/li&gt;
-&lt;li&gt;Knows Kubernetes, ran and deployed large and complex applications on it.&lt;/li&gt;
+        <description>&lt;img src="http://localhost:1313/img/about-me-image.jpg" alt="Featured image of post About me" /&gt;&lt;h1 id=&#34;hi-there-im-filipe-&#34;&gt;Hi there, I&amp;rsquo;m Filipe 👋
+&lt;/h1&gt;&lt;p&gt;I&amp;rsquo;m Filipe Augusto Lima de Souza, a Senior Software Engineer with over 15 years of experience building and maintaining large-scale distributed systems. I thrive on solving tough real-world problems, leading teams, and moving legacy systems into the future with cloud-native architectures.&lt;/p&gt;
+&lt;h2 id=&#34;-what-i-do&#34;&gt;🚀 What I Do
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Distributed Systems&lt;/strong&gt; | &lt;strong&gt;Cloud Native&lt;/strong&gt; | &lt;strong&gt;Microservices&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Architect, build, and scale resilient systems using modern tech.&lt;/li&gt;
+&lt;li&gt;Lead teams to success with best practices (DDD, TDD, SOLID).&lt;/li&gt;
+&lt;li&gt;Migrate legacy code to the cloud: GCP, AWS, Azure, Kubernetes.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;After 10+ years in Enterprise and &lt;strong&gt;Microsft .NET&lt;/strong&gt; I shifted to &lt;strong&gt;golang&lt;/strong&gt; and I now develop automation tools for the main Managed Kubernetes Solutions at CAST AI. Big time reversing engineering and creating software that is used enginners like me and SREs all around the world.&lt;/p&gt;
+&lt;h2 id=&#34;-tech-toolbox&#34;&gt;🛠️ Tech Toolbox
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Languages:&lt;/strong&gt; Go | C# | C | JavaScript | TypeScript | Java&lt;br&gt;
+&lt;strong&gt;Cloud:&lt;/strong&gt; Google Cloud Platform | Amazon Web Services | Microsoft Azure&lt;br&gt;
+&lt;strong&gt;Other:&lt;/strong&gt; Kubernetes | Terraform | SQL | Git | DDD | TDD | SOLID&lt;/p&gt;
+&lt;h2 id=&#34;-current-projects--contributions&#34;&gt;🌟 Current Projects &amp;amp; Contributions
+&lt;/h2&gt;&lt;p&gt;I&amp;rsquo;m actively working on and contributing to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/castai&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;castai/live&lt;/a&gt; — Real-time cloud infrastructure automation.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/fals/tinyq&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;fals/tinyq&lt;/a&gt; — Lightweight message queue.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I also contribute to private projects—if you’re interested in what I’m building behind the scenes, just reach out!&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;-connect-with-me&#34;&gt;🤝 Connect with Me
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;📍 Brussels, Belgium&lt;/li&gt;
+&lt;li&gt;📫 &lt;a class=&#34;link&#34; href=&#34;mailto:fals.xp@gmail.com&#34; &gt;fals.xp@gmail.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;🔗 &lt;a class=&#34;link&#34; href=&#34;https://linkedin.com/in/filipe-augusto-lima-de-souza-95a16833&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;LinkedIn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;📝 &lt;a class=&#34;link&#34; href=&#34;https://blog.fals.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;blog.fals.io&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;💻 &lt;a class=&#34;link&#34; href=&#34;https://github.com/fals&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;📄 &lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/files/resume.pdf&#34; &gt;CV&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Thanks for stopping by! If you want to chat about distributed systems, cloud tech, or just say hi, feel free to connect.&lt;/p&gt;
 </description>
         </item>
         <item>
